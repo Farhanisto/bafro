@@ -1,0 +1,22 @@
+{
+  "name": "bafro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Farhanisto/bafro.git",
+  "author": "Farhan",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.15",
+    "morgan": "^1.9.1"
+  },
+  "scripts":{
+    "api": "babel-node server.js"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1"
+  }
+}
