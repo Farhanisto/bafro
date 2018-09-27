@@ -9,12 +9,15 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "mongoose": "^5.2.15",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-router": "^4.3.1"
   },
   "scripts": {
     "api": "babel-node server.js",
-    "start": "NODE_ENV=development webpack-dev-server",
-    "build": "NODE_ENV=build webpack"
+    "start": "NODE_ENV=development webpack-dev-server --config webpack-config.js --display-error-details",
+    "build": "NODE_ENV=build webpack  --config webpack-config.js"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -27,6 +30,7 @@
     "react-hot-loader": "^4.0.0",
     "style-loader": "^0.23.0",
     "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1",
     "webpack-dev-server": "^3.1.9",
     "webpack-merge": "^4.1.4"
   }

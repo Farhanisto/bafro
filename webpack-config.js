@@ -1,18 +1,18 @@
 "use strict";
-
+const path = require('path');
 const merge = require('webpack-merge');
 const PATHS = require('./webpack-paths');
-const loaders = require('./webpack-loaders');
+const loaders = require('./webpack-loader');
 
 const common = {
     entry: {
        app: PATHS.src
     },
     output: {
-        path: PATHS.dist,
+        path: path.join(__dirname, 'client/src'),
         filename: 'bundle.js'
     },
-    module:{
+    module: {
         rules: [
             loaders.babel,
             loaders.css,
@@ -20,7 +20,7 @@ const common = {
         ]
     },
     resolve: {
-        extentions: ['js', 'jsx'],
+        extensions: ['js', 'jsx']
     }
 }
 
@@ -40,4 +40,4 @@ switch(process.env.NODE_ENV){
     );
 }
 
-export default config;
+module.exports= config;
