@@ -5,6 +5,7 @@ export default class Home extends PureComponent {
   active (path) {
     // Returns active when the path is equal to the current location
     if (this.props.location.pathname === path) {
+      console.log(this.props.location.pathname);
       return 'active';
     }
   }
