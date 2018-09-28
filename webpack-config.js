@@ -1,43 +1,48 @@
 "use strict";
-const path = require('path');
+
 const merge = require('webpack-merge');
+
 const PATHS = require('./webpack-paths');
 const loaders = require('./webpack-loader');
 
 const common = {
-    entry: {
-       app: PATHS.src
+    entry: { 
+        app: PATHS.src 
     },
-    output: {
-        path: path.join(__dirname, 'client/src'),
+    output: { 
+        path: PATHS.dist,
         filename: 'bundle.js'
     },
-    module: {
+    module: { 
         rules: [
-            loaders.babel,
-            loaders.css,
-            loaders.font
+          loaders.babel, 
+          loaders.css, 
+          loaders.font, 
         ]
     },
     resolve: {
-        extensions: ['js', 'jsx']
+        extensions: ['.js', '.jsx'] 
     }
-}
+};
 
 let config;
 
-switch(process.env.NODE_ENV){
+switch(process.env.NODE_ENV) {
     case 'build':
-      config = merge(common, {devtool: 'source-map'});
-      break;
+        config = merge(
+            common,
+            { devtool: 'source-map' } 
+         );
+        break;
     case 'development':
-       config = merge (common,
-         {devtool: 'eval-source-map'},
-         loaders.devServer({
-            host: process.env.host,
-            port: 3000
-        })
-    );
+        config = merge(
+            common,
+            { devtool: 'eval-source-map' }, 
+            loaders.devServer({
+                host: process.env.host,
+                port: 3000
+            })
+        );
 }
 
-module.exports= config;
+module.exports = config;
